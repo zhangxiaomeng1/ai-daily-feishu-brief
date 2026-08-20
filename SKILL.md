@@ -18,7 +18,7 @@ agent_created: true
 2. **选题**：筛出当日最热门的 5 条，必须覆盖 5 个维度各至少一条：模型 / 产品 / 商业 / 开源 / 监管（安全事件归入监管）。
 3. **核验**：对最重磅的 1–3 条追加一轮 `WebSearch` 找一手源交叉验证（厂商官方博客、交易所行情、SEC / 财报、路透 / 法新 / 彭博、Hugging Face 报告等）。厂商自测 benchmark 数字不可直接当事实，需在文中标注来源边界。
 4. **落盘**：写入本地 markdown，命名 `ai_speedbrief_YYYY-MM-DD-workbuddy.md`（遵循 `-workbuddy` 后缀约定，便于区分 AI 产出）。格式模板见 `references/workflow.md`。
-5. **发送**：调用 `scripts/send_brief.sh <file.md>` 推送（已验证命令见下）。
+5. **发送**：推送命令已验证（见下）。等价封装脚本位于本 skill 根目录的 `scripts/send_brief.sh`（与 SKILL.md 同级），以本 skill 目录为基准调用，例如 `bash <skill根目录>/scripts/send_brief.sh <file.md>`。
    ```
    LARKSUITE_CLI_NO_UPDATE_NOTIFIER=1 LARKSUITE_CLI_NO_SKILLS_NOTIFIER=1 \
    lark-cli im +messages-send --user-id <open_id> --as user \
